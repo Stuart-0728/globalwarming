@@ -61,7 +61,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Globe className="w-8 h-8 text-blue-600" />
-            <h1 className="text-2xl font-bold text-gray-900">全球变暖信息网</h1>
+            <h1 className="text-2xl font-bold text-gray-900">全球变暖新视角</h1>
           </div>
           <div className="hidden md:flex gap-6 text-sm font-medium">
             <a href="#definition" className="text-gray-600 hover:text-blue-600 transition">定义</a>
@@ -398,6 +398,20 @@ export default function Home() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 绿色出行呼吁 */}
+      <section className="py-10 bg-gradient-to-r from-green-50 to-blue-50">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Leaf className="w-8 h-8 text-green-600" />
+            <h3 className="text-2xl font-bold text-gray-900">让我们一起保护地球，绿色出行</h3>
+          </div>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            选择步行、骑行、公共交通或新能源汽车，减少碳足迹，为地球的可持续未来贡献自己的力量。
+            每一个小小的绿色选择，都是对地球的一份珍贵礼物。
+          </p>
         </div>
       </section>
     </div>
