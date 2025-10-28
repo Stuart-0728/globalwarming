@@ -1,47 +1,59 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLink, TrendingUp, Leaf, Globe, Zap } from "lucide-react";
+import { useRef } from "react";
 
 const dataSources = [
   {
     title: "联合国气候行动",
-    description: "联合国官方气候变化信息和报告",
-    url: "https://www.un.org/zh/climatechange/",
+    description: "气候变化的原因和影响",
+    url: "https://www.un.org/zh/climatechange/science/causes-effects-climate-change",
     icon: "🌍"
   },
   {
     title: "世界气象组织 (WMO)",
-    description: "全球气候数据和气象报告",
-    url: "https://wmo.int/zh-hans",
+    description: "2023年全球气候报告",
+    url: "https://wmo.int/zh-hans/news/media-centre/wmoqueren2023nianquanqiuqiwendapojilu",
     icon: "📊"
   },
   {
     title: "IPCC 气候变化专门委员会",
-    description: "权威的气候变化科学评估",
+    description: "气候变化科学评估报告",
     url: "https://www.ipcc.ch/languages-2/chinese/",
     icon: "📈"
   },
   {
     title: "中国生态环境部",
-    description: "中国应对气候变化的政策与行动",
-    url: "https://www.mee.gov.cn/",
+    description: "中国应对气候变化的政策与行动2024年度报告",
+    url: "https://www.mee.gov.cn/ywgz/ydqhbh/wsqtkz/202411/t20241106_1093618.shtml",
     icon: "🇨🇳"
   },
   {
     title: "中国政府网",
-    description: "中国应对气候变化政策文件",
-    url: "https://www.gov.cn/",
+    description: "中国应对气候变化的政策与行动",
+    url: "https://www.gov.cn/zhengce/2021-10/27/content_5646697.htm",
     icon: "📋"
   },
   {
     title: "百度百科",
-    description: "全球变暖的详细百科知识",
-    url: "https://baike.baidu.com/",
+    description: "全球变暖详细百科知识",
+    url: "https://baike.baidu.com/item/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96",
     icon: "📚"
   }
 ];
 
 export default function Home() {
+  const definitionRef = useRef<HTMLDivElement>(null);
+  const sourcesRef = useRef<HTMLDivElement>(null);
+
+  const scrollToDefinition = () => {
+    definitionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToSources = () => {
+    sourcesRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
       {/* 导航栏 */}
@@ -71,10 +83,10 @@ export default function Home() {
             全球变暖是当今最紧迫的环境挑战之一。了解其定义、成因、影响，以及我们可以采取的行动。
           </p>
           <div className="flex gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={scrollToDefinition}>
               开始了解
             </Button>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" onClick={scrollToSources}>
               查看数据源
             </Button>
           </div>
@@ -82,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* 定义部分 */}
-      <section id="definition" className="py-16 bg-white">
+      <section id="definition" ref={definitionRef} className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
             <Globe className="w-8 h-8 text-blue-600" />
@@ -354,7 +366,7 @@ export default function Home() {
       </section>
 
       {/* 权威数据来源 */}
-      <section id="sources" className="py-16 bg-white">
+      <section id="sources" ref={sourcesRef} className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
             <ExternalLink className="w-8 h-8 text-blue-600" />
@@ -388,40 +400,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* 页脚 */}
-      <footer className="bg-gray-900 text-gray-300 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h4 className="text-white font-bold mb-4">关于我们</h4>
-              <p className="text-sm">致力于提供全球变暖的科学知识和权威信息。</p>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">快速链接</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#definition" className="hover:text-white transition">定义</a></li>
-                <li><a href="#causes" className="hover:text-white transition">成因</a></li>
-                <li><a href="#impacts" className="hover:text-white transition">影响</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">资源</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#china" className="hover:text-white transition">中国力量</a></li>
-                <li><a href="#sources" className="hover:text-white transition">数据来源</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">联系方式</h4>
-              <p className="text-sm">Email: info@globalwarming.cn</p>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 pt-8 text-center text-sm">
-            <p>&copy; 2024 全球变暖信息网. 保护地球，从了解开始。</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
