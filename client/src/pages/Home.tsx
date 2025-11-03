@@ -12,8 +12,8 @@ const dataSources = [
   },
   {
     title: "世界气象组织 (WMO)",
-    description: "2023年全球气候报告",
-    url: "https://wmo.int/zh-hans/news/media-centre/wmoqueren2023nianquanqiuqiwendapojilu",
+    description: "2024年全球气候报告",
+    url: "https://wmo.int/publication-series/state-of-global-climate-2024",
     icon: "📊"
   },
   {
@@ -120,8 +120,8 @@ export default function Home() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="bg-blue-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-600">2023年全球年均温度</p>
-                  <p className="text-2xl font-bold text-blue-600">高于工业化前1.45°C</p>
+                  <p className="text-sm text-gray-600">2024年全球年均温度</p>
+                  <p className="text-2xl font-bold text-blue-600">高于工业化前1.5°C</p>
                 </div>
                 <div className="bg-cyan-50 p-4 rounded-lg">
                   <p className="text-sm text-gray-600">全球海平面上升速度</p>
